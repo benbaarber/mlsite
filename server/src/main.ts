@@ -1,12 +1,11 @@
 import express, { Request, Response } from 'express';
-import bodyParser from 'body-parser';
 // import cors from 'cors';
 import path from "path"
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT ?? 3000;
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use("/", express.static(path.resolve(__dirname, "../client")));
 
 app.listen(port, () => {
